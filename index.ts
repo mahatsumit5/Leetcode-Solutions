@@ -49,4 +49,34 @@ function createCounter(init: number): Counter {
  * counter.decrement(); // 4
  */
 
-console.log(createCounter(0).increment());
+type JSONValue =
+  | null
+  | boolean
+  | number
+  | string
+  | JSONValue[]
+  | { [key: string]: JSONValue };
+type OnceFn = (...args: JSONValue[]) => JSONValue | undefined;
+
+// function once(fn: Function): OnceFn {
+//   return function (...args) {};
+// }
+
+/**
+ * let fn = (a,b,c) => (a + b + c)
+ * let onceFn = once(fn)
+ *
+ * onceFn(1,2,3); // 6
+ * onceFn(2,3,6); // returns undefined without calling fn
+ */
+
+function createCounter2(n: number): () => number {
+  return () => n++;
+}
+
+/**
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */

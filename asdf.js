@@ -16,3 +16,16 @@ var fibGenerator = function* () {
  * gen.next().value; // 0
  * gen.next().value; // 1
  */
+
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
+  return setTimeout(() => {}, millis);
+}
+
+/**
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */

@@ -101,7 +101,10 @@ function plusOne(digits: number[]): number[] {
 }
 
 function isPalindrome(s: string): boolean {
-  const strWithRemovedWithSpace = s.replace(/\s+/g, "").toLowerCase().replace(/[^\w\s]|_/g, '')
+  const strWithRemovedWithSpace = s
+    .replace(/\s+/g, "")
+    .toLowerCase()
+    .replace(/[^\w\s]|_/g, "");
   const reversedString = strWithRemovedWithSpace
     .split("")
     .reverse()
@@ -119,7 +122,6 @@ function isPalindrome(s: string): boolean {
 
 // const result = isPalindrome("A man, a plan, a canal: Panama");
 // console.log(result ? "isPalindrome" : "not palindrome");
-
 
 /*
 
@@ -166,6 +168,73 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */
 
+// int[] nums = [...]; // Input array
+// int[] expectedNums = [...]; // The expected answer with correct length
+
+// int k = removeDuplicates(nums); // Calls your implementation
+
+// assert k == expectedNums.length;
+// for (int i = 0; i < k; i++) {
+//     assert nums[i] == expectedNums[i];
+// }
+
 function removeDuplicates(nums: number[]): number[] {
-    return [1]
-};
+  const newArray: number[] = [];
+  nums.map((item) => {
+    if (newArray.includes(item)) {
+      return;
+    } else {
+      newArray.push(item);
+    }
+  });
+  console.log(newArray);
+  return newArray;
+}
+
+function sumOfMultiples(n: number): number {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 || i % 5 === 0 || i % 7 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+
+function divide(dividend: number, divisor: number): number {
+  const num = dividend / divisor;
+  if (num < 0) {
+    return Math.ceil(num);
+  } else {
+    return Math.floor(num);
+  }
+}
+
+const ans = divide(-2147483648, -1);
+
+/*
+
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+ 
+
+Example 1:
+
+Input: nums = [2,2,1]
+Output: 1
+Example 2:
+
+Input: nums = [4,1,2,1,2]
+Output: 4
+Example 3:
+
+Input: nums = [1]
+Output: 1
+*/
+function singleNumber(nums: number[]): number {
+  let num: number;
+
+  return num;
+}
